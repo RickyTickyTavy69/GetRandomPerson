@@ -38,7 +38,7 @@ if (
 ) {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "/client/build/index.html"));
+    res.sendFile(path.join(dirname + "/client/build/index.html"));
   });
 }
 
@@ -46,7 +46,7 @@ async function start() {
   try {
     await mongoose.connect(MongoURI);
     app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+      res.sendFile(path.join(dirname, "client", "build", "index.html"));
     });
     app.listen(PORT, () => {
       console.log("Server has been started...");
