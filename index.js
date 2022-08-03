@@ -18,12 +18,12 @@ const MongoURI =
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-const Dirname = dirname();
+const Dir = dirname();
 
 dotenv.config();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(path.join(Dirname, "client", "build")));
+app.use(express.static(path.join(Dir, "client", "build")));
 
 app.use("/banUser", banUsersRouter);
 app.use("/saveUsers", saveUsersRouter);
@@ -38,7 +38,7 @@ if (
 ) {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
-    res.sendFile(path.join(Dirname + "/client/build/index.html"));
+    res.sendFile(path.join(Dir + "/client/build/index.html"));
   });
 }
 
@@ -46,7 +46,7 @@ async function start() {
   try {
     await mongoose.connect(MongoURI);
     app.get("*", (req, res) => {
-      res.sendFile(path.join(Dirname, "client", "build", "index.html"));
+      res.sendFile(path.join(Dir, "client", "build", "index.html"));
     });
     app.listen(PORT, () => {
       console.log("Server has been started...");
