@@ -9,6 +9,7 @@ import unBanUsersRouter from "./routes/unBannUser.routes.js";
 import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
+import dirname from "path";
 import dotenv from "dotenv";
 
 const MongoURI =
@@ -17,11 +18,12 @@ const MongoURI =
 const PORT = process.env.PORT || 5000;
 
 const app = express();
+const dirname = dirname();
 
 dotenv.config();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(express.static(path.join(dirname, "client", "build")));
 
 app.use("/banUser", banUsersRouter);
 app.use("/saveUsers", saveUsersRouter);
