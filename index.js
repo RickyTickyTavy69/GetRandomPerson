@@ -9,7 +9,7 @@ import unBanUsersRouter from "./routes/unBannUser.routes.js";
 import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
-import dirname from "path";
+import { fileURLToPath } from "url";
 import dotenv from "dotenv";
 
 const MongoURI =
@@ -18,12 +18,13 @@ const MongoURI =
 const PORT = process.env.PORT || 5000;
 
 const app = express();
-const Dir = dirname();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 dotenv.config();
 app.use(bodyParser.json());
 app.use(cors());
-app.use(express.static(path.join(Dir, "client", "build")));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 app.use("/banUser", banUsersRouter);
 app.use("/saveUsers", saveUsersRouter);
@@ -38,7 +39,7 @@ if (
 ) {
   app.use(express.static("client/build"));
   app.get("*", (req, res) => {
-    res.sendFile(path.join(Dir + "/client/build/index.html"));
+    res.sendFile(path.join(__dirname + "/client/build/index.html"));
   });
 }
 
@@ -46,7 +47,7 @@ async function start() {
   try {
     await mongoose.connect(MongoURI);
     app.get("*", (req, res) => {
-      res.sendFile(path.join(Dir, "client", "build", "index.html"));
+      res.sendFile(path.join(__dirname, "client", "build", "index.html"));
     });
     app.listen(PORT, () => {
       console.log("Server has been started...");
