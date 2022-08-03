@@ -1,0 +1,92 @@
+.container {
+  margin-top: 20vh;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
+}
+
+.display {
+  padding: 1%;
+  border: 4px double red;
+  color: black;
+  font-weight: bold;
+}
+
+.heartLoader {
+  width: 10%;
+}
+
+/**********************************************************usersTable**********************************************************/
+
+.usersTable {
+  border: 1px solid green;
+  width: 50%;
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  background-color: pink;
+  z-index: 10;
+  padding: 1%;
+  border-radius: 15px;
+  box-shadow: 1px 1px 4px;
+}
+
+.userContainer {
+  border: 2px solid black;
+  padding: 1%;
+  border-radius: 15px;
+  margin-bottom: 1vh;
+}
+
+.usersContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1%;
+  margin-bottom: 4vh;
+}
+
+.userContainer .userName {
+  font-size: 1.1em;
+  font-weight: 700;
+  color: blueviolet;
+}
+
+.usersTable input {
+  background: pink;
+  border: 2px solid purple;
+  margin-right: 4%;
+  padding: 1%;
+  font-weight: 700;
+}
+
+.usersTable button {
+  margin-right: 5%;
+  padding: 1%;
+  background: transparent;
+  border: 2px solid purple;
+  border-radius: 15px;
+  font-weight: 700;
+  transition: 0.3s;
+  margin-bottom: 1vh;
+}
+
+.usersTable button:hover {
+  color: blueviolet;
+  transition: 0.3s;
+}
+
+.usersTable input:focus {
+  background: rgb(251, 168, 182);
+  border: 2px solid purple;
+  outline: none;
+}
+
+.usersTable .usersInput p {
+  font-size: 1.1em;
+}
+
+.updating .container {
+  opacity: 0.3;
+}

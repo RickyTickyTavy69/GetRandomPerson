@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "concurrently": "^7.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.7"
+  },
+  "name": "bootstrap-proj",
+  "version": "1.0.0",
+  "description": "a cool project with bootstrap very nice ",
+  "main": "index.js",
+  "scripts": {
+    "server": "node index.js",
+    "client": "npm start --prefix ./client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "publishToHeroku": "cd ../ && git subtree push --prefix server heroku-app-server69 main || true",
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+  },
+  "engines": {
+    "node": "v16.14.0"
+  },
+  "keywords": [
+    "Bootstrap",
+    "Random",
+    "Person",
+    "Button"
+  ],
+  "author": "Artem Bakirov <bakirovartem69@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "type": "module"
+}
