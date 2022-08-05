@@ -120,13 +120,13 @@ const UserTable = ({
         return (
           <div className="userContainer" key={user}>
             <p className="userName">Name: {user}</p>
-            <button onClick={() => deleteUser(user)}> {user} löschen</button>
+            <button onClick={() => deleteUser(user)}> Delete {user} </button>
             <button
               onClick={() => {
                 unBanThisPerson(user);
               }}
             >
-              {user} Ban aufheben
+              unbann {user} 
             </button>
           </div>
         );
@@ -135,13 +135,13 @@ const UserTable = ({
       return (
         <div className="userContainer" key={user}>
           <p className="userName">Name: {user}</p>
-          <button onClick={() => deleteUser(user)}> {user} löschen</button>
+          <button onClick={() => deleteUser(user)}>  Delete {user}</button>
           <button
             onClick={() => {
               banThisPerson(user);
             }}
           >
-            {user} Ban geben
+             give {user} bann
           </button>
         </div>
       );
@@ -154,12 +154,11 @@ const UserTable = ({
       <div className="usersInput">
         {!peoplesHTML && (
           <p>
-            Sie haben noch keine Benutzer hinzugefügt. Das können Sie jetzt aba
-            tun
+            You have not added any Person yet. But you can Do it now.
           </p>
         )}
-        {peoples.length === 1 && <p>Heute nur {peoples[0]}...?</p>}
-        {peoplesHTML && <p>Sie können noch weitere Benutzer hinzufügen...</p>}
+        {peoples.length === 1 && <p>Only {peoples[0]}...?</p>}
+        {peoplesHTML && <p>You still can add more persons...</p>}
         <div className="addUserName">
           <input
             onChange={(event) => {
@@ -169,14 +168,14 @@ const UserTable = ({
             type="text"
             value={newUserInputValue}
           />
-          <button onClick={() => addUser(newUser)}>Jetzt Hinzufügen</button>
+          <button onClick={() => addUser(newUser)}>Add This</button>
           <button
             onClick={() => {
               setUpdateMenu(false);
               setWhosNextClasses("whosNext");
             }}
           >
-            fertig
+            Done
           </button>
         </div>
       </div>
